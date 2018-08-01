@@ -1,0 +1,14 @@
+/* 宏定义 */
+
+/* placeholder颜色定义 */
+@define-mixin placeholderColor $color {
+    &::-moz-placeholder {
+        color: $color;
+    }
+    &:-ms-input-placeholder {
+        color: $color !important;
+    }
+    &::-webkit-input-placeholder {
+        color: $color;
+    }
+}

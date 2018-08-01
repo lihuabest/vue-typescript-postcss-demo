@@ -1,0 +1,89 @@
+@import url(../../assets/styles/variables.css);
+@import url(../../assets/styles/mixin.css);
+
+.login-page {
+    height: 100%;
+    background: url(../../assets/images/login-background.png) no-repeat center scroll / cover;
+    // 一般嵌套
+    & .logo {
+        width: 300px;
+        position: absolute;
+        left: 50%;
+        top: 300px;
+        transform: translate(-50%, -50%);
+    }
+
+    & .form {
+        width: 100%;
+        position: absolute;
+        top: 600px;
+        & > div {
+            border-bottom: 1px solid #7F7F7F;
+            padding: 30px 0 30px 100px;
+            margin-bottom: 20px;
+            // 平级嵌套
+            &.username {
+                background: url(../../assets/images/icon-username.png) no-repeat 30px center scroll / 40px;
+            }
+            &.password {
+                background: url(../../assets/images/icon-password.png) no-repeat 30px center scroll / 40px;
+            }
+            &.forgot {
+                text-align: right;
+                color: #868380;
+                padding: 0 40px 0 0;
+                border: 0;
+                font-size: 26px;
+            }
+
+            & > input {
+                background: transparent;
+                border: 0;
+                color: #fff;
+                outline: 0;
+                width: 90%;
+
+                // 采用宏来填充 placeholder的颜色
+                @mixin placeholderColor #fff;
+            }
+        }
+    }
+
+    & .submit {
+        line-height: 120px;
+        width: 100%;
+        position: absolute;
+        // 变量定义
+        background: var(--red-color);
+        bottom: 100px;
+        text-align: center;
+        color: #fff;
+        font-size: 30px;
+    }
+    & .signup {
+        text-align: center;
+        width: 100%;
+        position: absolute;
+        bottom: 35px;
+        font-size: 26px;
+        span {
+            color: #868380;
+        }
+        a {
+            color: #fff;
+        }
+    }
+}
+
+// 屏幕高度不够的 需要重新调整位置
+@media screen and (max-height: 600px) {
+    .login-page {
+        & .logo {
+            width: 240px;
+            top: 250px;
+        }
+        & .form {
+            top: 450px;
+        }
+    }
+}
